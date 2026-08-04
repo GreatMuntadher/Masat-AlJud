@@ -1,0 +1,49 @@
+{
+  "hosting": {
+    "public": ".",
+    "cleanUrls": false,
+    "headers": [
+      {
+        "source": "**/*.html",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
+          { "key": "X-Content-Type-Options", "value": "nosniff" },
+          { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+          { "key": "Permissions-Policy", "value": "geolocation=(), camera=(), microphone=(), payment=(), usb=()" },
+          { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+        ]
+      },
+      {
+        "source": "service-worker.js",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
+          { "key": "X-Content-Type-Options", "value": "nosniff" },
+          { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+          { "key": "Permissions-Policy", "value": "geolocation=(), camera=(), microphone=(), payment=(), usb=()" },
+          { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+        ]
+      },
+      {
+        "source": "**/*.js",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" },
+          { "key": "X-Content-Type-Options", "value": "nosniff" }
+        ]
+      },
+      {
+        "source": "**/*.css",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" },
+          { "key": "X-Content-Type-Options", "value": "nosniff" }
+        ]
+      },
+      {
+        "source": "icons/**",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=2592000, immutable" },
+          { "key": "X-Content-Type-Options", "value": "nosniff" }
+        ]
+      }
+    ]
+  }
+}

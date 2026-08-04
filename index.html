@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#020812" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="موارد ماسة الجود" />
+  <title>بوابة الموارد البشرية | شركة ماسة الجود</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json?v=6" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css?v=11" />
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">تجاوز إلى المحتوى</a>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+
+  <header id="header">
+    <div class="container navbar">
+      <a class="logo" href="index.html" aria-label="بوابة الموارد البشرية | شركة ماسة الجود">
+        <span class="logo-icon">
+          <img src="icons/logo-mark.svg" width="28" height="28" alt="" class="logo-mark-icon">
+        </span>
+        <span class="logo-text">بوابة الموارد البشرية | <strong>ماسة الجود</strong></span>
+      </a>
+
+      <nav class="nav-actions" aria-label="القائمة الرئيسية">
+        <a class="nav-link" href="#home">الرئيسية</a>
+        <a class="nav-link" href="#announcements">الإعلانات</a>
+        <a class="nav-link" href="#forms">النماذج</a>
+        <button class="btn btn-dark btn-sm" type="button" onclick="openAdminLogin()">دخول الأدمن</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="mainContent" tabindex="-1">
+    <section class="hero portal-hero" id="home">
+      <div class="container hero-layout">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="eyebrow-dot"></span><span id="cmsWelcomeSubtitle">إعلانات وخدمات قسم الموارد البشرية | ماسة الجود</span></div>
+          <h1 id="cmsWelcomeTitle">بوابة الموارد البشرية</h1>
+          <p id="cmsWelcomeDescription">
+            نظام داخلي لتنظيم خدمات الموظفين وتسهيل إجراءات الموارد البشرية داخل شركة ماسة الجود.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#forms">استعراض الخدمات</a>
+          </div>
+
+          <div class="hero-metrics" aria-label="مؤشرات البوابة">
+            <div><strong>5</strong><span>خدمات رئيسية</span></div>
+            <div><strong>24/7</strong><span>وصول سريع</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="hr-hub-scene" aria-hidden="true">
+            <div class="hub-aura"></div>
+            <svg class="hub-links" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M50 66 21 46M50 66 78 42M50 66 32 21M50 66 67 19M50 66 50 9"/></svg>
+            <div class="hub-tile tile-forms" data-depth="1.4"><span>▤</span></div>
+            <div class="hub-tile tile-alerts" data-depth=".8"><span>◉</span></div>
+            <div class="hub-tile tile-policies" data-depth="1.1"><span>▱</span></div>
+            <div class="hub-tile tile-time" data-depth=".7"><span>◷</span></div>
+            <div class="hub-tile tile-profile" data-depth="1.25"><span>◌</span></div>
+            <div class="hub-core" data-depth=".35"><span>HR</span><i></i></div>
+            <div class="hub-platform"><span></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="announcements" class="content-section section-panel">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="section-kicker">الإعلانات</span>
+          <h2>لوحة الإعلانات</h2>
+          <p>آخر تحديثات وتنبيهات قسم الموارد البشرية في شركة ماسة الجود تظهر هنا بشكل واضح ومرتب.</p>
+        </div>
+        <div class="ann-list" id="annList"></div>
+      </div>
+    </section>
+
+    <section id="forms" class="content-section section-panel">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="section-kicker blue">النماذج والخدمات</span>
+          <h2>النماذج والخدمات</h2>
+          <p>روابط موحدة لأهم النماذج والخدمات التي يحتاجها موظفو شركة ماسة الجود.</p>
+        </div>
+
+        <div class="forms-grid"></div>
+
+        <div class="employee-guide-inline">
+          <div class="section-title reveal guide-section-title">
+            <span class="section-kicker">دليل سريع</span>
+            <h2>دليل الموظف السريع</h2>
+            <p>إرشادات مختصرة لاستخدام النماذج والخدمات الداخلية بشكل صحيح.</p>
+          </div>
+
+          <div class="employee-guide-grid">
+            <article class="card guide-card reveal">
+              <div class="icon-box" aria-hidden="true">🗓️</div>
+              <div class="guide-content">
+                <h3>طلب الإجازة والزمنية</h3>
+                <p>يتم تقديم الطلب من خلال النموذج الرسمي، ولا يُعد موافقاً عليه إلا بعد المراجعة والاعتماد.</p>
+              </div>
+            </article>
+
+            <article class="card guide-card reveal">
+              <div class="icon-box" aria-hidden="true">🧭</div>
+              <div class="guide-content">
+                <h3>طلب مهمة عمل</h3>
+                <p>يُستخدم عند وجود تكليف رسمي، مع توضيح الجهة والغرض ووقت المهمة بدقة.</p>
+              </div>
+            </article>
+
+            <article class="card guide-card reveal">
+              <div class="icon-box" aria-hidden="true">🪪</div>
+              <div class="guide-content">
+                <h3>تحديث بيانات الموظف</h3>
+                <p>يجب تحديث البيانات الشخصية والمستمسكات عند حدوث أي تغيير لضمان دقة السجلات.</p>
+              </div>
+            </article>
+
+            <article class="card guide-card reveal">
+              <div class="icon-box" aria-hidden="true">🕘</div>
+              <div class="guide-content">
+                <h3>مشاكل الحضور والبصمة</h3>
+                <p>يجب إبلاغ المدير المباشر والموارد البشرية في اليوم نفسه عند وجود مشكلة في التسجيل.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="content-section section-panel" hidden>
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="section-kicker blue">الخدمات</span>
+          <h2>الخدمات</h2>
+          <p>خدمات الموارد البشرية الداخلية المتاحة للموظفين.</p>
+        </div>
+        <div class="forms-grid services-grid" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <section id="policies" class="policies-section content-section section-panel">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="section-kicker policy-kicker">السياسات</span>
+          <h2>السياسات واللوائح الداخلية</h2>
+          <p>الاطلاع على السياسات والتعليمات واللوائح المعتمدة لتنظيم بيئة العمل وحقوق وواجبات الموظفين.</p>
+        </div>
+        <div class="policies-grid" id="policiesGrid"></div>
+      </div>
+    </section>
+
+    <section id="info" class="info-section content-section">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div>
+            <span class="section-kicker">التواصل</span>
+            <h2 id="cmsContactTitle">معلومات التواصل</h2>
+            <p id="cmsContactDescription">نعمل لتنظيم بيئة العمل وتسهيل خدمات الموظفين.</p>
+          </div>
+          <div class="contact-items">
+            <div class="contact-item contact-line contact-phone-line"><span class="contact-line-icon" aria-hidden="true">📞</span><a id="hrPhoneLink" data-site-contact="phone" href="tel:"></a></div>
+            <div class="contact-item">✉️ <a id="hrEmail" data-site-contact="email" href="mailto:"></a></div>
+            <div class="contact-item contact-line"><span class="contact-line-icon" aria-hidden="true">🕘</span><span id="cmsWorkingHours">السبت-الخميس 08:00-15:00</span></div>
+            <div class="contact-social-links" id="socialLinks"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-mini">
+      <p id="cmsFooterText">جميع الحقوق محفوظة &copy; <span id="year">2026</span> قسم الموارد البشرية - شركة ماسة الجود.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="العودة إلى أعلى الصفحة" title="العودة إلى الأعلى">↑</button>
+  <div class="toast-region" id="publicToastRegion" aria-live="polite" aria-atomic="true"></div>
+
+  <div class="modal" id="adminLoginModal" aria-hidden="true">
+    <div class="modal-dialog admin-dialog" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h3>دخول أدمن ماسة الجود</h3>
+        <button class="xbtn" type="button" onclick="closeAdminLogin()">✕</button>
+      </div>
+      <div class="admin-login-body">
+        <p class="admin-login-text">الرجاء إدخال كلمة المرور للدخول إلى بوابة أدمن شركة ماسة الجود.</p>
+        <input type="email" id="adminEmail" value="HR@masataljud.com" autocomplete="username" placeholder="البريد الإلكتروني" class="admin-password-input" />
+        <input type="password" id="adminPassword" autocomplete="current-password" placeholder="أدخل كلمة المرور" class="admin-password-input" />
+        <div id="adminLoginError" class="admin-login-error"></div>
+        <div class="admin-login-actions">
+          <button class="btn btn-primary" id="adminLoginSubmit" type="button" onclick="submitAdminLogin()">دخول</button>
+          <button class="btn btn-outline-dark" type="button" onclick="closeAdminLogin()">إلغاء</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="site-contact-config.js?v=1"></script>
+  <script type="module" src="firebase-admin-auth.js?v=1"></script>
+  <script src="script.js?v=12"></script>
+  <script type="module" src="firebase-announcements.js?v=2"></script>
+  <script type="module" src="firebase-cms.js?v=2"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=12", { scope: "./" }));
+    }
+  </script>
+</body>
+</html>

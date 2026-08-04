@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#020812" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>بوابة أدمن شركة ماسة الجود | الموارد البشرية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json?v=6" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="admin.css?v=7" />
+</head>
+<body class="admin-page">
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+
+  <header class="admin-header app-header">
+    <div class="container admin-topbar">
+      <a class="logo" href="index.html">
+        <span class="logo-icon">
+          <img src="icons/logo-mark.svg" width="28" height="28" alt="" class="logo-mark-icon">
+        </span>
+        <span class="logo-text">أدمن <strong>ماسة الجود</strong></span>
+      </a>
+
+      <div class="admin-top-actions">
+        <button class="admin-menu-toggle" id="adminMenuToggle" type="button" aria-label="فتح أقسام الإدارة" aria-controls="adminSidebar" aria-expanded="false">☰</button>
+        <a href="index.html" class="btn btn-primary">العودة لبوابة ماسة الجود</a>
+        <button class="btn btn-dark" type="button" onclick="logoutAdmin()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+    <section class="admin-hero">
+      <div>
+        <span class="section-kicker">إدارة المحتوى</span>
+        <h1>مركز إدارة ماسة الجود</h1>
+        <p>بوابة أدمن شركة ماسة الجود لعرض بطاقات الإدارة وروابط الأدوات الداخلية الخاصة بفريق الموارد البشرية والإدارة.</p>
+      </div>
+      <div class="admin-help">للدعم: <a data-site-contact="phone" href="tel:"></a></div>
+    </section>
+
+    <section class="admin-dashboard">
+      <div class="dashboard-stat">
+        <span class="dashboard-stat-value" id="statQuickCards">0</span>
+        <span class="dashboard-stat-label">الكروت السريعة</span>
+      </div>
+      <div class="dashboard-stat">
+        <span class="dashboard-stat-value" id="statForms">0</span>
+        <span class="dashboard-stat-label">النماذج</span>
+      </div>
+      <div class="dashboard-stat">
+        <span class="dashboard-stat-value" id="statAnnouncements">0</span>
+        <span class="dashboard-stat-label">الإعلانات</span>
+      </div>
+      <div class="dashboard-stat">
+        <span class="dashboard-stat-value" id="statPoliciesActive">0</span>
+        <span class="dashboard-stat-label">السياسات النشطة</span>
+      </div>
+      <div class="dashboard-stat">
+        <span class="dashboard-stat-value" id="statPoliciesTotal">0</span>
+        <span class="dashboard-stat-label">إجمالي السياسات</span>
+      </div>
+    </section>
+
+    <nav class="admin-tabs" id="adminSidebar" role="tablist" aria-label="أقسام إدارة المحتوى">
+      <button class="admin-tab-btn active" type="button" data-tab="quickCards" role="tab" aria-selected="true">الكروت السريعة</button>
+      <button class="admin-tab-btn" type="button" data-tab="forms" role="tab" aria-selected="false">النماذج</button>
+      <button class="admin-tab-btn" type="button" data-tab="announcements" role="tab" aria-selected="false">الإعلانات</button>
+      <button class="admin-tab-btn" type="button" data-tab="services" role="tab" aria-selected="false">الخدمات</button>
+      <button class="admin-tab-btn" type="button" data-tab="policies" role="tab" aria-selected="false">إدارة السياسات</button>
+      <button class="admin-tab-btn" type="button" data-tab="adminCards" role="tab" aria-selected="false">بطاقات الإدارة</button>
+    </nav>
+
+    <div class="cms-status-banner" id="cmsStatusBanner" aria-live="polite" hidden></div>
+
+    <section class="admin-section tab-panel" data-tab-panel="quickCards">
+      <div class="cms-section-title">
+        <div>
+          <span class="section-kicker">الوصول السريع</span>
+          <h2>الكروت السريعة (أعلى الصفحة الرئيسية)</h2>
+          <p>الكروت الظاهرة ضمن "استعراض الخدمات" في أعلى بوابة الموارد البشرية.</p>
+        </div>
+        <button class="btn btn-add" type="button" onclick="openItemEditor('quickCards')">+ إضافة كرت جديد</button>
+      </div>
+      <div class="cms-toolbar-inline">
+        <input type="text" class="cms-search-input" placeholder="بحث بالعنوان..." data-filter-search="quickCards">
+        <select class="cms-status-filter" data-filter-status="quickCards">
+          <option value="all">الكل</option>
+          <option value="active">نشط</option>
+          <option value="hidden">مخفي</option>
+        </select>
+        <a class="btn btn-dark" href="index.html" target="_blank" rel="noopener">معاينة الصفحة الرئيسية</a>
+      </div>
+      <div class="cms-list" id="quickCardsManageList"></div>
+    </section>
+
+    <section class="admin-section tab-panel" data-tab-panel="forms" hidden>
+      <div class="cms-section-title">
+        <div>
+          <span class="section-kicker">النماذج</span>
+          <h2>النماذج</h2>
+          <p>نماذج قسم "النماذج" في الصفحة الرئيسية.</p>
+        </div>
+        <button class="btn btn-add" type="button" onclick="openItemEditor('forms')">+ إضافة نموذج جديد</button>
+      </div>
+      <div class="cms-toolbar-inline">
+        <input type="text" class="cms-search-input" placeholder="بحث بالعنوان..." data-filter-search="forms">
+        <select class="cms-status-filter" data-filter-status="forms">
+          <option value="all">الكل</option>
+          <option value="active">نشط</option>
+          <option value="hidden">مخفي</option>
+        </select>
+        <a class="btn btn-dark" href="index.html" target="_blank" rel="noopener">معاينة الصفحة الرئيسية</a>
+      </div>
+      <div class="cms-list" id="formsManageList"></div>
+    </section>
+
+    <section class="admin-section tab-panel" data-tab-panel="announcements" hidden>
+      <div class="cms-section-title">
+        <div>
+          <span class="section-kicker">الإعلانات</span>
+          <h2>الإعلانات</h2>
+          <p>الإعلانات الظاهرة في "لوحة الإعلانات" بالصفحة الرئيسية.</p>
+        </div>
+        <button class="btn btn-add" type="button" onclick="openItemEditor('announcements')">+ إضافة إعلان جديد</button>
+      </div>
+      <div class="cms-toolbar-inline">
+        <input type="text" class="cms-search-input" placeholder="بحث بالعنوان..." data-filter-search="announcements">
+        <select class="cms-status-filter" data-filter-status="announcements">
+          <option value="all">الكل</option>
+          <option value="active">نشط</option>
+          <option value="hidden">مخفي</option>
+        </select>
+        <a class="btn btn-dark" href="index.html" target="_blank" rel="noopener">معاينة الصفحة الرئيسية</a>
+      </div>
+      <div class="cms-list" id="announcementsManageList"></div>
+    </section>
+
+    <section class="admin-section tab-panel" data-tab-panel="services" hidden>
+      <div class="cms-section-title">
+        <div>
+          <span class="section-kicker">الخدمات</span>
+          <h2>الخدمات</h2>
+          <p>الخدمات الظاهرة في الصفحة الرئيسية.</p>
+        </div>
+        <button class="btn btn-add" type="button" onclick="openItemEditor('services')">+ إضافة خدمة جديدة</button>
+      </div>
+      <div class="cms-toolbar-inline">
+        <input type="text" class="cms-search-input" placeholder="بحث بالعنوان..." data-filter-search="services">
+        <select class="cms-status-filter" data-filter-status="services">
+          <option value="all">الكل</option>
+          <option value="active">نشط</option>
+          <option value="hidden">مخفي</option>
+        </select>
+        <a class="btn btn-dark" href="index.html" target="_blank" rel="noopener">معاينة الصفحة الرئيسية</a>
+      </div>
+      <div class="cms-list" id="servicesManageList"></div>
+    </section>
+
+    <section class="admin-section tab-panel" data-tab-panel="policies" hidden>
+      <div class="cms-section-title">
+        <div>
+          <span class="section-kicker">السياسات واللوائح</span>
+          <h2>إدارة السياسات</h2>
+          <p>إدارة بطاقات السياسات واللوائح الظاهرة في الصفحة الرئيسية.</p>
+        </div>
+        <button class="btn btn-add" type="button" onclick="openItemEditor('policies')">+ إضافة سياسة جديدة</button>
+      </div>
+      <div class="cms-toolbar-inline">
+        <input type="text" class="cms-search-input" placeholder="بحث بالعنوان..." data-filter-search="policies">
+        <select class="cms-status-filter" data-filter-status="policies">
+          <option value="all">الكل</option>
+          <option value="active">نشط</option>
+          <option value="hidden">مخفي</option>
+        </select>
+        <a class="btn btn-dark" href="index.html#policies" target="_blank" rel="noopener">معاينة قسم السياسات</a>
+      </div>
+      <div class="cms-list" id="policiesManageList"></div>
+    </section>
+
+    <section class="admin-section tab-panel" data-tab-panel="adminCards" hidden>
+      <div class="cms-section-title">
+        <div>
+          <span class="section-kicker">البطاقات الإدارية</span>
+          <h2>بطاقات إدارة ماسة الجود</h2>
+          <p>إدارة البطاقات الإدارية مع معاينة شكلها أسفل القائمة.</p>
+        </div>
+        <button class="btn btn-add" type="button" onclick="openItemEditor('adminCards')">+ إضافة بطاقة إدارية</button>
+      </div>
+      <div class="cms-toolbar-inline">
+        <input type="text" class="cms-search-input" placeholder="بحث بالعنوان..." data-filter-search="adminCards">
+        <select class="cms-status-filter" data-filter-status="adminCards">
+          <option value="all">الكل</option>
+          <option value="active">نشط</option>
+          <option value="hidden">مخفي</option>
+        </select>
+        <a class="btn btn-dark" href="index.html" target="_blank" rel="noopener">معاينة الصفحة الرئيسية</a>
+      </div>
+      <div class="cms-list" id="adminCardsManageList"></div>
+      <div class="cards-grid" id="adminCardsList"></div>
+    </section>
+
+    <section class="admin-section">
+      <div class="cms-toolbar-inline">
+        <button class="btn btn-outline" type="button" onclick="refreshFirestoreData()">تحديث بيانات الموقع</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="itemEditModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h3 id="itemEditTitle">إضافة عنصر</h3>
+        <button class="xbtn" type="button" onclick="closeItemEditor()">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="itemEditForm"></form>
+        <div class="modal-error" id="itemEditError"></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="itemEditSave" type="button" onclick="saveItemEditor()">حفظ</button>
+        <button class="btn btn-dark" type="button" onclick="closeItemEditor()">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="deleteConfirmModal" aria-hidden="true">
+    <div class="modal-dialog confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="deleteConfirmTitle">
+      <div class="modal-head"><h3 id="deleteConfirmTitle">تأكيد الحذف</h3></div>
+      <div class="modal-body"><p>سيُحذف هذا العنصر من Firestore ولا يمكن التراجع عن العملية.</p></div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="deleteConfirmButton" type="button">حذف العنصر</button>
+        <button class="btn btn-dark" id="deleteCancelButton" type="button">إلغاء</button>
+      </div>
+    </div>
+  </div>
+  <div class="toast-region admin-toast-region" id="adminToastRegion" aria-live="polite" aria-atomic="true"></div>
+
+  <style>html.auth-pending body{visibility:hidden}</style>
+  <script src="site-contact-config.js?v=1"></script>
+  <script type="module" src="firebase-admin-auth.js?v=1"></script>
+  <script type="module" src="firebase-announcements.js?v=1"></script>
+  <script type="module" src="firebase-cms.js?v=1"></script>
+  <script type="module" src="seed-firestore-content.js?v=2"></script>
+  <script src="admin.js?v=11"></script>
+</body>
+</html>
